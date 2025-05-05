@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/lostmann/.config/tmux/plugins/kube-tmux'
+let g:netrw_dirhist_2='/home/lostmann/.bash_completions'
+let g:netrw_dirhist_1='/home/lostmann/.kube'
