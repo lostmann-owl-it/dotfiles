@@ -1,0 +1,52 @@
+#!/bin/bash
+set -e
+
+echo "🛠️ Starte yadm bootstrap..."
+
+# ----- Vim Plug installieren -----
+if [ ! -f ~/.vim/autoload/plug.vim ]; then
+  echo "📦 Installiere vim-plug für Vim..."
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+else
+  echo "✅ vim-plug ist bereits installiert."
+fi
+
+# ----- Tmux Plugin Manager (TPM) -----
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+  echo "🔌 Klone tmux plugin manager (TPM)..."
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+else
+  echo "✅ TPM (Tmux Plugin Manager) ist bereits installiert."
+fi
+
+# ----- Starship -----
+if ! command -v starship &> /dev/null; then
+  echo "🚀 Starship ist nicht installiert."
+  read -p "👉 Möchtest du Starship jetzt installieren? [y/N]: " INSTALL_STARSHIP
+  if [[ "$INSTALL_STARSHIP" =~ ^[Yy]$ ]]; then
+    curl -sS https://starship.rs/install.sh | sh
+    echo "✅ Starship wurde installiert."
+  else
+    echo "⚠️ Starship wird übersprungen."
+  fi
+else
+  echo "✅ Starship ist bereits installiert."
+fi
+
+# ----- Vim Plugins installieren -----
+echo "💡 Starte Vim Plugin Installation..."
+vim +PlugInstall +qall </dev/tty
+
+# ----- LazyVim Hinweis -----
+if [ -d ~/.config/nvim/lua ]; then
+  echo "📦 Neovim-Setup erkannt. LazyVim wird erwartet."
+  echo "   Du kannst Plugins via :Lazy sync in Neovim verwalten."
+fi
+
+# ----- Hinweis für Tmux Plugin Installation -----
+echo "🧩 Starte Tmux-Plugin Installation manuell mit:"
+echo "     <prefix> + I  (Shift + i) innerhalb von Tmux"
+
+echo "✅ yadm bootstrap abgeschlossen!"
+
