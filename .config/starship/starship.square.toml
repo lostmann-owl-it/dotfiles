@@ -75,7 +75,7 @@ style = "bg:peach fg:crust"
 # symbol = ""
 format = "[  ](fg:peach bg:#ffffff)[ $path ]($style) "
 truncation_length = 3
-truncate_to_repo = true
+truncate_to_repo = false
 truncation_symbol = "…/"
 home_symbol = "~ "
 read_only = "  "
@@ -89,10 +89,10 @@ read_only = "  "
 
 [git_branch]
 symbol = ""
-truncation_length = 4
+truncation_length = 9
 truncation_symbol = "…"
 # ignore_branches = ["master", "main"]
-format = "[ $symbol ](fg:yellow bg:#ffffff)[ $branch]($style)"
+format = "[ $symbol ](fg:yellow bg:#ffffff)[ $branch ]($style)"
 style = "fg:crust bg:yellow"
 
 [git_commit]
@@ -102,7 +102,7 @@ format = "[\\($hash\\)]($style) [\\($tag\\)]($style)"
 style = "green"
 
 [git_status]
-format = '[[( $all_status$ahead_behind )](fg:crust bg:yellow)]($style) '
+format = '[[($all_status$ahead_behind )](fg:crust bg:yellow)]($style) '
 style = "bg:yellow"
 disabled = false
 
@@ -162,9 +162,9 @@ symbol = "☸"
 # style = "bg:sapphire"
 # format = '[[ $symbol($context \($namespace\)) ](bg:color_starry_night)]($style)'
 format = '[ $symbol ](fg:$style bg:#ffffff)[ $context \($namespace\) ](fg:crust bg:$style) '
-detect_files = ['k8s']
-detect_extensions = ['yaml', 'yml']
-detect_folders = ['k8s', 'kubernetes']
+# detect_files = ['k8s']
+# detect_extensions = ['yaml', 'yml']
+# detect_folders = ['k8s', 'kubernetes']
 # detect_env_vars = []
 
 [[kubernetes.contexts]]

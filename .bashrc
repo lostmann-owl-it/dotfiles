@@ -70,3 +70,8 @@ complete -C /home/lostmann/minio-binaries/mc mc
 [[ -f ~/.bash/kubernetes.sh ]] && source ~/.bash/kubernetes.sh
 [[ -f ~/.bash_completions/kubectl-ns-completion.bash ]] && source ~/.bash_completions/kubectl-ns-completion.bash
 [[ -f ~/.bash_completions/kubectl-ctx-completion.bash ]] && source ~/.bash_completions/kubectl-ctx-completion.bash
+
+if [ -n "$TMUX" ] && [ -n "$SSH_AUTH_SOCK" ]; then
+    tmux set-environment -g SSH_AUTH_SOCK "$SSH_AUTH_SOCK"
+fi
+
