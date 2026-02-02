@@ -75,3 +75,6 @@ if [ -n "$TMUX" ] && [ -n "$SSH_AUTH_SOCK" ]; then
     tmux set-environment -g SSH_AUTH_SOCK "$SSH_AUTH_SOCK"
 fi
 
+
+# Auto-Warpify
+[[ "$-" == *i* ]] && printf 'P$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "bash", "uname": "Linux" }}œ' 

@@ -35,13 +35,13 @@ function d () {
 # List directory contents
 if command -v exa &>/dev/null; then
     # If exa exists, create the alias with icons and long format
-    alias ll='exa --group-directories-first --icons -l'
-    alias l='exa --group-directories-first --icons -la'
+    alias ll='exa --group-directories-first --icons -lhg'
+    alias l='exa --group-directories-first --icons -lahg'
     alias lt='exa --group-directories-first --icons -T'
 elif command -v eza &>/dev/null; then
     # If eza exists, create the alias with icons and long format
-    alias ll='eza --group-directories-first --icons -l'
-    alias l='eza --group-directories-first --icons -la'
+    alias ll='eza --group-directories-first --icons -lhg'
+    alias l='eza --group-directories-first --icons -lahg'
     alias lt='eza --group-directories-first --icons -T'
 else
     # If exa does not exist, fallback to ls with long format
