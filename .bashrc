@@ -33,14 +33,14 @@
 #   echo -ne "\033]0;${USER}@$(hostname -s): $t\007"
 # '
 
-update_terminal_title() {
-  local t="$PWD"
-  [[ "$t" == "$HOME"* ]] && t="~${t#$HOME}"
-  # Nur setzen, wenn keine aktive Vollbild-App l√§uft
-  echo -ne "\033]0;${USER}@$(hostname -s): $t\007"
-}
-
-export PROMPT_COMMAND=update_terminal_title
+# update_terminal_title() {
+#   local t="$PWD"
+#   [[ "$t" == "$HOME"* ]] && t="~${t#$HOME}"
+#   # Nur setzen, wenn keine aktive Vollbild-App l√§uft
+#   echo -ne "\033]0;${USER}@$(hostname -s): $t\007"
+# }
+#
+# export PROMPT_COMMAND=update_terminal_title
 
 test -s ~/.alias && . ~/.alias || true
 eval "$(direnv hook bash)"
@@ -77,4 +77,4 @@ fi
 
 
 # Auto-Warpify
-[[ "$-" == *i* ]] && printf 'P$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "bash", "uname": "Linux" }}ú' 
+# [[ "$-" == *i* ]] && printf 'P$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "bash", "uname": "Linux" }}ú' 
